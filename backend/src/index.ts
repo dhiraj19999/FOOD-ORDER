@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-
+import myUserRoute from "./routes/MyUserRoute";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
@@ -11,6 +11,8 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
+
+app.use("/api/my/user", myUserRoute);
 
 app.get("/test", async (req: Request, res: Response) => {
   res.json({ message: "hello" });
